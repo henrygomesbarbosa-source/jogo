@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Super Quiz do Saber! 🚀</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Fonte divertida e legível -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- CABEÇALHO DO JOGO -->
+  <header class="game-header">
+    <div class="logo">
+      <span class="icon">🎮</span>
+      <h1>Super Quiz <span>6º Ano</span></h1>
+    </div>
+    <div class="status-bar" id="status-bar" style="display: none;">
+      <div class="status-item">
+        <span class="label">❤️ Vidas:</span>
+        <span id="lives-display">❤️❤️❤️</span>
+      </div>
+      <div class="status-item">
+        <span class="label">⭐ Pontos:</span>
+        <span id="score-display">0</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- CONTEÚDO PRINCIPAL -->
+  <main class="main-container">
+
+    <!-- TELA 1: INÍCIO -->
+    <section id="start-screen" class="card screen active">
+      <div class="mascot">🚀</div>
+      <h2>Bem-vindo ao Desafio do Saber!</h2>
+      <p>Testes seus conhecimentos, ganhe pontos e mostre que você é um super campeão!</p>
+      <button id="btn-start" class="btn btn-primary btn-bounce">
+        ▶️ COMEÇAR O JOGO
+      </button>
+    </section>
+
+    <!-- TELA 2: PERGUNTAS (JOGO) -->
+    <section id="quiz-screen" class="card screen">
+      <div class="progress-container">
+        <div class="progress-bar" id="progress-bar"></div>
+      </div>
+      
+      <div class="question-header">
+        <span id="question-number" class="badge">Pergunta 1 de 5</span>
+        <span id="category-badge" class="badge badge-yellow">Geral</span>
+      </div>
+
+      <h3 id="question-text" class="question-text">Carregando pergunta...</h3>
+
+      <div id="options-container" class="options-grid">
+        <!-- As opções de resposta serão inseridas via JavaScript -->
+      </div>
+
+      <div id="feedback-message" class="feedback hidden"></div>
+
+      <button id="btn-next" class="btn btn-secondary hidden">
+        Próxima Pergunta ➔
+      </button>
+    </section>
+
+    <!-- TELA 3: FINAL / RESULTADO -->
+    <section id="end-screen" class="card screen">
+      <div id="end-icon" class="mascot">🏆</div>
+      <h2 id="end-title">Parabéns!</h2>
+      <p id="end-message">Você concluiu o desafio com sucesso!</p>
+      
+      <div class="final-score-box">
+        <p>Sua Pontuação Final:</p>
+        <span id="final-score" class="score-highlight">0</span>
+        <p id="accuracy-text" class="sub-score">Acertos: 0/0</p>
+      </div>
+
+      <button id="btn-restart" class="btn btn-primary btn-bounce">
+        🔄 JOGAR NOVAMENTE
+      </button>
+    </section>
+
+  </main>
+
+  <!-- RODAPÉ -->
+  <footer class="game-footer">
+    <p>Aprender é uma aventura incrível! ✨ | Feito para o 6º Ano</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
