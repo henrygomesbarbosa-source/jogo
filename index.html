@@ -3,92 +3,111 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Super Quiz do Saber! 🚀</title>
+  <title>Tiro ao Alvo Esportivo 🎯 | Educação Física</title>
   <link rel="stylesheet" href="style.css">
-  <!-- Fonte divertida e legível -->
+  <!-- Fonte infantil, amigável e bem legível -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-  <!-- CABEÇALHO DO JOGO -->
+  <!-- ESTRUTURAÇÃO SEMÂNTICA: HEADER -->
   <header class="game-header">
-    <div class="logo">
-      <span class="icon">🎮</span>
-      <h1>Super Quiz <span>6º Ano</span></h1>
+    <div class="header-logo">
+      <span class="icon">🎯</span>
+      <h1>Tiro ao Alvo <span>Esportivo</span></h1>
     </div>
-    <div class="status-bar" id="status-bar" style="display: none;">
-      <div class="status-item">
-        <span class="label">❤️ Vidas:</span>
+    
+    <div class="hud-bar" id="hud-bar">
+      <div class="hud-item">
+        <span class="hud-label">❤️ Vidas:</span>
         <span id="lives-display">❤️❤️❤️</span>
       </div>
-      <div class="status-item">
-        <span class="label">⭐ Pontos:</span>
+      <div class="hud-item">
+        <span class="hud-label">⭐ Pontos:</span>
         <span id="score-display">0</span>
       </div>
     </div>
   </header>
 
-  <!-- CONTEÚDO PRINCIPAL -->
-  <main class="main-container">
+  <!-- ESTRUTURAÇÃO SEMÂNTICA: MAIN -->
+  <main class="game-container">
 
-    <!-- TELA 1: INÍCIO -->
-    <section id="start-screen" class="card screen active">
-      <div class="mascot">🚀</div>
-      <h2>Bem-vindo ao Desafio do Saber!</h2>
-      <p>Testes seus conhecimentos, ganhe pontos e mostre que você é um super campeão!</p>
-      <button id="btn-start" class="btn btn-primary btn-bounce">
-        ▶️ COMEÇAR O JOGO
+    <!-- TELA 1: INÍCIO (START) -->
+    <section id="screen-start" class="screen active">
+      <div class="target-animation">🎯</div>
+      <h2>Desafio dos Esportes!</h2>
+      <p>Mire nos alvos certos e teste seus conhecimentos sobre Esportes de Invasão, Rede, Marca e Precisão!</p>
+      <button id="btn-start" class="btn btn-pop">
+        🏹 COMECAR A JOGAR
       </button>
     </section>
 
-    <!-- TELA 2: PERGUNTAS (JOGO) -->
-    <section id="quiz-screen" class="card screen">
-      <div class="progress-container">
-        <div class="progress-bar" id="progress-bar"></div>
+    <!-- TELA 2: FASE DE TIRO AO ALVO -->
+    <section id="screen-target" class="screen">
+      <div class="target-instructions">
+        <h3>Acerte no Alvo Amarelo para liberar a Pergunta! 🎯</h3>
       </div>
-      
-      <div class="question-header">
-        <span id="question-number" class="badge">Pergunta 1 de 5</span>
-        <span id="category-badge" class="badge badge-yellow">Geral</span>
+      <div class="shooting-gallery">
+        <div id="shooting-target" class="target-box">
+          <div class="ring outer-ring">
+            <div class="ring middle-ring">
+              <div class="ring inner-ring">
+                <div class="bullseye">🎯</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TELA 3: PERGUNTA / QUIZ -->
+    <section id="screen-quiz" class="screen">
+      <div class="progress-bar-wrap">
+        <div id="progress-bar" class="progress-bar"></div>
+      </div>
+
+      <div class="quiz-info">
+        <span id="question-badge" class="badge badge-purple">Pergunta 1/6</span>
+        <span id="category-badge" class="badge badge-orange">Categoria</span>
       </div>
 
       <h3 id="question-text" class="question-text">Carregando pergunta...</h3>
 
-      <div id="options-container" class="options-grid">
-        <!-- As opções de resposta serão inseridas via JavaScript -->
-      </div>
+      <!-- Grade de Opções -->
+      <div id="options-container" class="options-grid"></div>
 
-      <div id="feedback-message" class="feedback hidden"></div>
+      <!-- Feedback Dinâmico -->
+      <div id="feedback-message" class="feedback-box hidden"></div>
 
       <button id="btn-next" class="btn btn-secondary hidden">
-        Próxima Pergunta ➔
+        Próximo Alvo ➔
       </button>
     </section>
 
-    <!-- TELA 3: FINAL / RESULTADO -->
-    <section id="end-screen" class="card screen">
-      <div id="end-icon" class="mascot">🏆</div>
-      <h2 id="end-title">Parabéns!</h2>
-      <p id="end-message">Você concluiu o desafio com sucesso!</p>
-      
-      <div class="final-score-box">
-        <p>Sua Pontuação Final:</p>
-        <span id="final-score" class="score-highlight">0</span>
+    <!-- TELA 4: FINAL / RESULTADO -->
+    <section id="screen-end" class="screen">
+      <div id="end-icon" class="result-icon">🏆</div>
+      <h2 id="end-title">Mestre da Precisão!</h2>
+      <p id="end-message">Você acertou os alvos e deu um show de conhecimento!</p>
+
+      <div class="score-card">
+        <p>Pontuação Total:</p>
+        <span id="final-score" class="big-score">0</span>
         <p id="accuracy-text" class="sub-score">Acertos: 0/0</p>
       </div>
 
-      <button id="btn-restart" class="btn btn-primary btn-bounce">
+      <button id="btn-restart" class="btn btn-pop">
         🔄 JOGAR NOVAMENTE
       </button>
     </section>
 
   </main>
 
-  <!-- RODAPÉ -->
+  <!-- ESTRUTURAÇÃO SEMÂNTICA: FOOTER -->
   <footer class="game-footer">
-    <p>Aprender é uma aventura incrível! ✨ | Feito para o 6º Ano</p>
+    <p>Aprender Educação Física é divertido! ⚽🏀🏐🎯 | 6º Ano</p>
   </footer>
 
   <script src="script.js"></script>
